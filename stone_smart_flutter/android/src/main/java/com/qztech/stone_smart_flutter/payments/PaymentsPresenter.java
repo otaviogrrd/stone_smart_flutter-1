@@ -7,14 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.plugin.common.MethodChannel;
-import io.reactivex.disposables.Disposable;
 import stone.utils.keys.StoneKeyType;
 
 public class PaymentsPresenter {
 
     private PaymentsUseCase mUseCase;
     private PaymentsFragment mFragment;
-    private Disposable mSubscribe;
     private Boolean hasAborted = false;
     private int countPassword = 0;
     private boolean isDebugLog = false;
@@ -129,8 +127,5 @@ public class PaymentsPresenter {
     }
 
     public void dispose() {
-        if (mSubscribe != null) {
-            mSubscribe.dispose();
-        }
     }
 }
