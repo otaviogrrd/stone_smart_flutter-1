@@ -1,3 +1,9 @@
+## 1.4.1
+
+- Update Stone SDK to version 4.15.0
+- Fix internal Packagecloud token fallback
+- Update Gradle wrapper to 8.9 for AGP 8.7.3 compatibility
+
 ## 1.4.0
 
 - Fix readToken

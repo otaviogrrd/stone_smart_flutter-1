@@ -4,7 +4,7 @@ version '1.0'
 buildscript {
     ext {
         kotlin_version = '1.9.0'
-        stone_sdk_version = '4.10.2'
+        stone_sdk_version = '4.15.0'
 
         localProp = new Properties()
         fileName = 'local.properties'
@@ -12,7 +12,7 @@ buildscript {
             localProp.load(new FileInputStream(rootProject.file(fileName)))
         }
         packageCloudReadToken = System.env.PACKAGECLOUD_READ_TOKEN != null ? System.env.PACKAGECLOUD_READ_TOKEN  : localProp["packageCloudReadToken"] ?: ""
-        packageCloudReadTokenInternal = System.env.PACKAGECLOUD_READ_TOKEN_INTERNAL ?: localProp["packageCloudReadTokenInternal"]
+        packageCloudReadTokenInternal = System.env.PACKAGECLOUD_READ_TOKEN_INTERNAL ?: localProp["packageCloudReadTokenInternal"] ?: packageCloudReadToken
         println "packageCloudReadToken: $packageCloudReadToken"
         println "packageCloudReadTokenInternal: $packageCloudReadTokenInternal"
     }
