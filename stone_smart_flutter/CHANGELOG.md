@@ -1,3 +1,7 @@
+## 1.4.2
+
+- Update Stone SDK to version 4.16.3
+
 ## 1.4.1
 
 - Update Stone SDK to version 4.15.0

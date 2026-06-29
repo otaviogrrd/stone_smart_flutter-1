@@ -40,7 +40,7 @@ Máquinas compatíveis:
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Flutter](https://flutter.dev/)
-- SDK Stone version: 4.15.0
+- SDK Stone version: 4.16.3
 
 ## :checkered_flag: Configuração
 
