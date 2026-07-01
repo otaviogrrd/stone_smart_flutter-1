@@ -34,23 +34,29 @@ Máquinas compatíveis:
 - Ingenico APOS A8
 - Sunmi P2
 - Gertec GPOS700X
+- Tectoy T8
 
 ## :rocket: Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Flutter](https://flutter.dev/)
-- SDK Stone version: 4.16.3
+- SDK Stone version: 4.15.0
 
 ## :checkered_flag: Configuração
 
 ### # Pubspec.yaml
 
 Para usar este plugin, adicione `stone_smart_flutter` como [dependência](https://flutter.io/using-packages/) ao seu arquivo `pubspec.yaml`.
+referenciando esse fork:
 
 ```yaml
 dependencies:
-  stone_smart_flutter: any
+  stone_smart_flutter:
+   git:
+     url: https://github.com/otaviogrrd/stone_smart_flutter-1.git
+     ref: feat/update-to-new-flutter
+     path: stone_smart_flutter
 ```
 
 This will get you the latest version.
@@ -69,6 +75,49 @@ defaultConfig {
         versionName flutterVersionName
     }
 ...
+```
+
+Para configuração da dependencia de cada flavor:
+
+```xml
+...
+def stoneSdkVersion = "4.15.0"
+
+dependencies {
+  ingenicoImplementation "br.com.stone:stone-sdk-posandroid-ingenico:$stoneSdkVersion"
+  sunmiImplementation "br.com.stone:stone-sdk-posandroid-sunmi:$stoneSdkVersion"
+  sunmiSeriesPImplementation "br.com.stone:stone-sdk-posandroid-sunmi:$stoneSdkVersion"
+  tectoySeriesTImplementation "br.com.stone:stone-sdk-posandroid-tectoy:$stoneSdkVersion"
+  gertecGpos700Implementation "br.com.stone:stone-sdk-posandroid-gertec:$stoneSdkVersion"
+  gertecGposSeries7Implementation "br.com.stone:stone-sdk-posandroid-gertec:$stoneSdkVersion"
+  positivoSeriesLImplementation "br.com.stone:stone-sdk-posandroid-positivo:$stoneSdkVersion"
+}
+...
+```
+
+
+### # AndroidManifest.xml
+
+Em seu AndroidManifest.xml adicione as queries 
+
+```xml
+    <queries>
+        <package android:name="br.com.positivo.stoneprovider" />
+        <package android:name="br.com.stone.posandroid.acquirerapp" />
+        <package android:name="br.com.stone.posandroid.activationapp" />
+        <package android:name="br.com.stone.posandroid.datacontainer" />
+        <package android:name="br.com.stone.posandroid.launcherapp" />
+        <package android:name="br.com.stone.posandroid.net" />
+        <package android:name="br.com.stone.posandroid.pdm" />
+        <package android:name="br.com.stone.posandroid.phc" />
+        <package android:name="br.com.stone.posandroid.pixapp" />
+        <package android:name="br.com.stone.posandroid.settingsapp" />
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>
 ```
 
 ### # Implementação

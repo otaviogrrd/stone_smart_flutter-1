@@ -1,3 +1,7 @@
+## 1.4.3
+
+- Roll back Stone SDK to latest released version 4.15.0
+
 ## 1.4.2
 
 - Update Stone SDK to version 4.16.3
